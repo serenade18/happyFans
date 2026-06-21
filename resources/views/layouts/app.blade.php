@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta name="description" content="@yield('description_custom')@if(!Request::route()->named('seo') && !Request::route()->named('profile')){{trans('seo.description')}}@endif">
+  <meta name="description" content="@yield('description_custom', 'Join HappyFans and start earning from your fans worldwide. Monetize content, grow your audience, and access powerful tools to build a predictable income. Built by creators for creators.')">
   <meta name="keywords" content="@yield('keywords_custom'){{ trans('seo.keywords') }}" />
   <meta name="theme-color" content="{{ config('settings.theme_color_pwa') }}">
   <title>{{ auth()->check() && User::notificationsCount() ? '('.User::notificationsCount().') ' : '' }}@section('title')@show {{$settings->title.' - '.__('seo.slogan')}}</title>
@@ -16,7 +16,7 @@
   @if ($settings->google_tag_manager_head != '')
   {!! $settings->google_tag_manager_head !!}
   @endif
-
+ 
   @include('includes.css_general')
 
   @if ($settings->status_pwa)
